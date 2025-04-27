@@ -126,7 +126,7 @@
     "@@bzlmodrio-opencv~//:maven_cpp_deps.bzl%setup_bzlmodrio_opencv_cpp_dependencies": {
       "general": {
         "bzlTransitiveDigest": "kmiXrZrHq7vGj8WmcQNpi8WxZtKfNjwaTpmlC1p3Q0g=",
-        "usagesDigest": "mAP4cxp7apQKc/irj3rRnf+z+XnE+ck5LSbmkYfIG3c=",
+        "usagesDigest": "EOHfI1pKQml5623UxmzwPgRw9aVCpbyBNOyOBFEm0k8=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -558,7 +558,7 @@
     "@@bzlmodrio-opencv~//:maven_java_deps.bzl%setup_bzlmodrio_opencv_java_dependencies": {
       "general": {
         "bzlTransitiveDigest": "2ZwamkH+VmDdy0ue/dFtUt2+KSm4F7hFiMHm4FMd8N4=",
-        "usagesDigest": "3VfqoJcXXNNpSsnV19Ta57hg2z6NXTwByjqQNkQbHsk=",
+        "usagesDigest": "u1zlrHr7W0xUsa34BZRszxcaV47+Nt328abemoTC1hY=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -745,7 +745,7 @@
     "@@rules_bzlmodrio_toolchains~//:extensions.bzl%sh_configure": {
       "general": {
         "bzlTransitiveDigest": "FSzzLax1FSAilvZicvnhrjs+SiDm3CUZEJoKp8eiL2s=",
-        "usagesDigest": "ZuybEXe3p64B/EeVUmrfjvXGd60Ad75CUCRBRLEbeLs=",
+        "usagesDigest": "9TFJTdA6Zzh5BZ6yS4vbM4i2r5n7Z4p0aq1J1m8dtYg=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
