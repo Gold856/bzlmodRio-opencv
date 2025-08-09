@@ -1,12 +1,16 @@
+YEAR = "2025"
+MAVEN_VERSION = "4.10.0-3"
+BZLMOD_PATCH = ".bcr5"
+
 module(
     name = "bzlmodrio-opencv",
-    version = "2025.4.10.0-3.bcr5",
-    compatibility_level = 2025,
+    version = YEAR + "." + MAVEN_VERSION + BZLMOD_PATCH,
+    compatibility_level = int(YEAR),
 )
 
-bazel_dep(name = "platforms", version = "0.0.9")
+bazel_dep(name = "platforms", version = "0.0.11")
 bazel_dep(name = "rules_cc", version = "0.1.4")
-bazel_dep(name = "rules_java", version = "8.11.0")
+bazel_dep(name = "rules_java", version = "8.12.0")
 bazel_dep(name = "rules_bzlmodrio_toolchains", version = "2025-1.bcr5")
 bazel_dep(name = "rules_bzlmodrio_jdk", version = "17.0.12-7.bcr1")
 
@@ -66,7 +70,7 @@ bazel_dep(name = "rules_jvm_external", version = "6.8")
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 maven.install(
     artifacts = [
-        "edu.wpi.first.thirdparty.frc2025.opencv:opencv-java:4.10.0-3",
+        "edu.wpi.first.thirdparty.frc" + YEAR + ".opencv:opencv-java:" + MAVEN_VERSION,
     ],
     fetch_sources = True,
     known_contributing_modules = [

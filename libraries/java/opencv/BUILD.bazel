@@ -1,10 +1,12 @@
 load("@rules_java//java:java_library.bzl", "java_library")
 
+YEAR = "2025"
+
 java_library(
     name = "opencv",
     visibility = ["//visibility:public"],
     exports = [
         "@bzlmodrio-opencv//libraries/cpp/opencv:jni",
-        "@maven//:edu_wpi_first_thirdparty_frc2025_opencv_opencv_java",
+        "@maven//:edu_wpi_first_thirdparty_frc" + YEAR + "_opencv_opencv_java",
     ],
 )

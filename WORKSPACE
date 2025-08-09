@@ -2,6 +2,9 @@ workspace(name = "bzlmodrio-opencv")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+YEAR = "2025"
+MAVEN_VERSION = "4.10.0-3"
+
 ########################
 # Download Dependencies
 ########################
@@ -15,17 +18,17 @@ http_archive(
 
 http_archive(
     name = "rules_java",
-    sha256 = "d31b6c69e479ffa45460b64dc9c7792a431cac721ef8d5219fc9f603fa2ff877",
+    sha256 = "1558508fc6c348d7f99477bd21681e5746936f15f0436b5f4233e30832a590f9",
     urls = [
-        "https://github.com/bazelbuild/rules_java/releases/download/8.11.0/rules_java-8.11.0.tar.gz",
+        "https://github.com/bazelbuild/rules_java/releases/download/8.12.0/rules_java-8.12.0.tar.gz",
     ],
 )
 
 http_archive(
     name = "rules_jvm_external",
-    sha256 = "c18a69d784bcd851be95897ca0eca0b57dc86bb02e62402f15736df44160eb02",
-    strip_prefix = "rules_jvm_external-6.3",
-    url = "https://github.com/bazelbuild/rules_jvm_external/releases/download/6.3/rules_jvm_external-6.3.tar.gz",
+    sha256 = "704a0197e4e966f96993260418f2542568198490456c21814f647ae7091f56f2",
+    strip_prefix = "rules_jvm_external-6.8",
+    url = "https://github.com/bazelbuild/rules_jvm_external/releases/download/6.8/rules_jvm_external-6.8.tar.gz",
 )
 
 http_archive(
@@ -92,7 +95,7 @@ rules_jvm_external_setup()
 load("@rules_jvm_external//:defs.bzl", "maven_install")
 
 maven_artifacts, maven_repositories = [
-    "edu.wpi.first.thirdparty.frc2025.opencv:opencv-java:4.10.0-3",
+    "edu.wpi.first.thirdparty.frc" + YEAR + ".opencv:opencv-java:" + MAVEN_VERSION,
 ], [
     "https://repo1.maven.org/maven2",
     "https://frcmaven.wpi.edu/release",

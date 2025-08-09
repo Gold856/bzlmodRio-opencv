@@ -133,6 +133,9 @@ _download_and_generate = repository_rule(
     attrs = _download_and_generate_attrs,
 )
 
+YEAR = "2025"
+MAVEN_VERSION = "4.10.0-3"
+
 def __static_shared_pair(mctx, name, shared_sha256, static_sha256):
     shared_name = name
     if name.endswith("debug"):
@@ -140,8 +143,8 @@ def __static_shared_pair(mctx, name, shared_sha256, static_sha256):
     else:
         static_name = name + "static"
 
-    shared_url = "https://frcmaven.wpi.edu/release/edu/wpi/first/thirdparty/frc2025/opencv/opencv-cpp/4.10.0-3/opencv-cpp-4.10.0-3-" + shared_name + ".zip"
-    static_url = "https://frcmaven.wpi.edu/release/edu/wpi/first/thirdparty/frc2025/opencv/opencv-cpp/4.10.0-3/opencv-cpp-4.10.0-3-" + static_name + ".zip"
+    shared_url = "https://frcmaven.wpi.edu/release/edu/wpi/first/thirdparty/frc" + YEAR + "/opencv/opencv-cpp/" + MAVEN_VERSION + "/opencv-cpp-" + MAVEN_VERSION + "-" + shared_name + ".zip"
+    static_url = "https://frcmaven.wpi.edu/release/edu/wpi/first/thirdparty/frc" + YEAR + "/opencv/opencv-cpp/" + MAVEN_VERSION + "/opencv-cpp-" + MAVEN_VERSION + "-" + static_name + ".zip"
     static_repository_name = "edu_wpi_opencv-cpp_" + static_name
     shared_repository_name = "edu_wpi_opencv-cpp_" + shared_name
     maybe(
@@ -160,6 +163,7 @@ def __static_shared_pair(mctx, name, shared_sha256, static_sha256):
     )
 
 def __setup_bzlmodrio_opencv_cpp_dependencies(mctx):
+    # BEGIN static shared pairs
     maybe(
         http_archive,
         "edu_wpi_opencv-cpp_headers",
@@ -206,57 +210,15 @@ def __setup_bzlmodrio_opencv_cpp_dependencies(mctx):
     )
     __static_shared_pair(
         mctx,
-        name = "linuxarm64",
-        shared_sha256 = "be814284499e70c94c11934f2ab6ce2f90714f76031d3384957f071cec7f30bc",
-        static_sha256 = "f4fe718c0a8f378440ddc7e51dc9353d303c2298985ba7c77f6a838f91b9bd63",
-    )
-    __static_shared_pair(
-        mctx,
-        name = "linuxx86-64",
-        shared_sha256 = "f2d9b51c752bbef26cf613d999054fca2f38e622fa503d32d42c4a6895092c43",
-        static_sha256 = "1338d8a0b610cd5a922dc2384be73755345791bf5e6319210f468369d6d80246",
-    )
-    __static_shared_pair(
-        mctx,
-        name = "osxarm64",
-        shared_sha256 = "8994e3281f028e21d837a362b1e23f258b68cc9b0ced1fe1410d3431ba87a0a9",
-        static_sha256 = "b99fe8e498685ba88310ef32f497d582195018233f18f2f3842e48f5edeec84b",
-    )
-    __static_shared_pair(
-        mctx,
-        name = "osxuniversal",
-        shared_sha256 = "ef8c557a912e28a048ea5a601b6e2494fb855ce4cc628f5630bf82defbd00a61",
-        static_sha256 = "eeca3f28ce3b840c8f91ec7ea9f14d8b8d61e21a94cc1b26f693230c26603d05",
-    )
-    __static_shared_pair(
-        mctx,
-        name = "osxx86-64",
-        shared_sha256 = "4aaef18a3074c2db17721844c205df13d27f015e204514216c436adfcd6290dc",
-        static_sha256 = "53c01641c2106b802a4cce85ff12f80c4cf4eaecdfeb0b26a3e15b44c61cb34d",
-    )
-    __static_shared_pair(
-        mctx,
-        name = "windowsx86-64",
-        shared_sha256 = "c230df0a5c26ce77a02638e2f1902d459830e33c1e0b99c3b505135b2687ddf4",
-        static_sha256 = "22cb69efc521b51d71d018e11a71a8f8e560b750710ac45a6764930dc9a008d9",
-    )
-    __static_shared_pair(
-        mctx,
-        name = "windowsx86",
-        shared_sha256 = "fd55ef0eaa59b0b715a18bf48db073131b75f92eaac14840a64d263181949bab",
-        static_sha256 = "4133f7e2458c9dc1a7771be8231a348073a8f556ab5475dc091b0566c0be7b6b",
-    )
-    __static_shared_pair(
-        mctx,
-        name = "windowsarm64",
-        shared_sha256 = "80aa7f94ccddaf0d92190ce3072f411c39d8ceb6555dfb8a1ecaedc65892b2c2",
-        static_sha256 = "1112aac5e9cedde35d1e3ee90d1444ee55db0c68542e1e8d748c1b6ac6e26f40",
-    )
-    __static_shared_pair(
-        mctx,
         name = "linuxarm32debug",
         shared_sha256 = "7833a7ec3acd1e2b9045a3ebd1cbd1d6ab85fe54ef4868c818c0b71b2133fa67",
         static_sha256 = "f5185acc7b863c80f6dc9eeeb1fee02200211f8d0e68823b28569d01b509dd8a",
+    )
+    __static_shared_pair(
+        mctx,
+        name = "linuxarm64",
+        shared_sha256 = "be814284499e70c94c11934f2ab6ce2f90714f76031d3384957f071cec7f30bc",
+        static_sha256 = "f4fe718c0a8f378440ddc7e51dc9353d303c2298985ba7c77f6a838f91b9bd63",
     )
     __static_shared_pair(
         mctx,
@@ -266,9 +228,21 @@ def __setup_bzlmodrio_opencv_cpp_dependencies(mctx):
     )
     __static_shared_pair(
         mctx,
+        name = "linuxx86-64",
+        shared_sha256 = "f2d9b51c752bbef26cf613d999054fca2f38e622fa503d32d42c4a6895092c43",
+        static_sha256 = "1338d8a0b610cd5a922dc2384be73755345791bf5e6319210f468369d6d80246",
+    )
+    __static_shared_pair(
+        mctx,
         name = "linuxx86-64debug",
         shared_sha256 = "35c88d5db2c9cc343e44ccaf3524068b328c7d0ea90df5351c39f1f881d8e40b",
         static_sha256 = "6e0d47e3f4735dc2445bb241ff5e05b48b8110338c54169b5126a23b99b570c1",
+    )
+    __static_shared_pair(
+        mctx,
+        name = "osxarm64",
+        shared_sha256 = "8994e3281f028e21d837a362b1e23f258b68cc9b0ced1fe1410d3431ba87a0a9",
+        static_sha256 = "b99fe8e498685ba88310ef32f497d582195018233f18f2f3842e48f5edeec84b",
     )
     __static_shared_pair(
         mctx,
@@ -278,9 +252,21 @@ def __setup_bzlmodrio_opencv_cpp_dependencies(mctx):
     )
     __static_shared_pair(
         mctx,
+        name = "osxuniversal",
+        shared_sha256 = "ef8c557a912e28a048ea5a601b6e2494fb855ce4cc628f5630bf82defbd00a61",
+        static_sha256 = "eeca3f28ce3b840c8f91ec7ea9f14d8b8d61e21a94cc1b26f693230c26603d05",
+    )
+    __static_shared_pair(
+        mctx,
         name = "osxuniversaldebug",
         shared_sha256 = "3fa16c3e1ec2e5e2812cb415c92d649d466b065ed5a0f06352bf40ab32389d69",
         static_sha256 = "5f0bc46c5c959f2ea584a96955906f183283d911b9f7532749d4e9cab8ad8b0e",
+    )
+    __static_shared_pair(
+        mctx,
+        name = "osxx86-64",
+        shared_sha256 = "4aaef18a3074c2db17721844c205df13d27f015e204514216c436adfcd6290dc",
+        static_sha256 = "53c01641c2106b802a4cce85ff12f80c4cf4eaecdfeb0b26a3e15b44c61cb34d",
     )
     __static_shared_pair(
         mctx,
@@ -290,9 +276,21 @@ def __setup_bzlmodrio_opencv_cpp_dependencies(mctx):
     )
     __static_shared_pair(
         mctx,
+        name = "windowsx86-64",
+        shared_sha256 = "c230df0a5c26ce77a02638e2f1902d459830e33c1e0b99c3b505135b2687ddf4",
+        static_sha256 = "22cb69efc521b51d71d018e11a71a8f8e560b750710ac45a6764930dc9a008d9",
+    )
+    __static_shared_pair(
+        mctx,
         name = "windowsx86-64debug",
         shared_sha256 = "ef670782658e7d5b9c50235197c7bf4fa650a9c4125b67a92fd4cdb7c6f77c0a",
         static_sha256 = "26d8e9752a4ceffcc75c32f386eb3f5dd1f104edf9424c5a28497c862aacc3d2",
+    )
+    __static_shared_pair(
+        mctx,
+        name = "windowsx86",
+        shared_sha256 = "fd55ef0eaa59b0b715a18bf48db073131b75f92eaac14840a64d263181949bab",
+        static_sha256 = "4133f7e2458c9dc1a7771be8231a348073a8f556ab5475dc091b0566c0be7b6b",
     )
     __static_shared_pair(
         mctx,
@@ -302,10 +300,17 @@ def __setup_bzlmodrio_opencv_cpp_dependencies(mctx):
     )
     __static_shared_pair(
         mctx,
+        name = "windowsarm64",
+        shared_sha256 = "80aa7f94ccddaf0d92190ce3072f411c39d8ceb6555dfb8a1ecaedc65892b2c2",
+        static_sha256 = "1112aac5e9cedde35d1e3ee90d1444ee55db0c68542e1e8d748c1b6ac6e26f40",
+    )
+    __static_shared_pair(
+        mctx,
         name = "windowsarm64debug",
         shared_sha256 = "ed86da931fcc66ec21e7d6d4f97a9e3e4dc7264d8929702c68145e984c013791",
         static_sha256 = "e876349009c07649335c81bba178baea63704fb47e3128f0049ca28dc8d6d8ac",
     )
+    # END static shared pairs
 
 def setup_legacy_bzlmodrio_opencv_cpp_dependencies():
     __setup_bzlmodrio_opencv_cpp_dependencies(None)
