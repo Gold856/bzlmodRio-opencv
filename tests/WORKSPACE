@@ -37,8 +37,8 @@ http_archive(
 
 http_archive(
     name = "rules_bzlmodrio_toolchains",
-    sha256 = "b86f16f282a767bf73a341efcbd955613e4a20aa6f1fe7f229583af68e51acf8",
-    urls = ["https://github.com/wpilibsuite/rules_bzlmodrio_toolchains/releases/download/2025-1.bcr5/rules_bzlmodrio_toolchains-2025-1.bcr5.tar.gz"],
+    sha256 = "fcd712645a4c3c9c6e194f6ac3c240f0a67f4832b02acef524382732cf89ae60",
+    urls = ["https://github.com/wpilibsuite/rules_bzlmodrio_toolchains/releases/download/2025-1.bcr7/rules_bzlmodrio_toolchains-2025-1.bcr7.tar.gz"],
 )
 
 http_archive(
