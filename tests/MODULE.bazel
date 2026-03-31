@@ -9,7 +9,7 @@ bazel_dep(name = "rules_cc", version = "0.1.4")
 bazel_dep(name = "rules_java", version = "8.11.0")
 bazel_dep(name = "rules_jvm_external", version = "6.3")
 bazel_dep(name = "rules_bazelrio", version = "0.0.14")
-bazel_dep(name = "rules_bzlmodrio_toolchains", version = "2025-1.bcr5")
+bazel_dep(name = "rules_bzlmodrio_toolchains", version = "2025-1.bcr7")
 bazel_dep(name = "rules_bzlmodrio_jdk", version = "17.0.12-7.bcr1")
 
 # TODO replace with released version once they make one that has Austins patch

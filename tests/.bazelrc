@@ -18,16 +18,6 @@ build:systemcore --platforms=@rules_bzlmodrio_toolchains//platforms/systemcore
 build:systemcore --build_tag_filters=-no-systemcore
 build:systemcore --platform_suffix=systemcore
 
-# bullseye32
-build:bullseye32 --platforms=@rules_bzlmodrio_toolchains//platforms/bullseye32
-build:bullseye32 --build_tag_filters=-no-bullseye32
-build:bullseye32 --platform_suffix=bullseye32
-
-# bullseye64
-build:bullseye64 --platforms=@rules_bzlmodrio_toolchains//platforms/bullseye64
-build:bullseye64 --build_tag_filters=-no-bullseye64
-build:bullseye64 --platform_suffix=bullseye64
-
 # bookworm32
 build:bookworm32 --platforms=@rules_bzlmodrio_toolchains//platforms/bookworm32
 build:bookworm32 --build_tag_filters=-no-bookworm32
@@ -38,19 +28,14 @@ build:bookworm64 --platforms=@rules_bzlmodrio_toolchains//platforms/bookworm64
 build:bookworm64 --build_tag_filters=-no-bookworm64
 build:bookworm64 --platform_suffix=bookworm64
 
-# raspibullseye32
-build:raspibullseye32 --platforms=@rules_bzlmodrio_toolchains//platforms/raspibullseye32
-build:raspibullseye32 --build_tag_filters=-no-raspibullseye32
-build:raspibullseye32 --platform_suffix=raspibullseye32
-
-# raspibookworm32
-build:raspibookworm32 --platforms=@rules_bzlmodrio_toolchains//platforms/raspibookworm32
-build:raspibookworm32 --build_tag_filters=-no-raspibookworm32
-build:raspibookworm32 --platform_suffix=raspibookworm32
+# rpbookworm32
+build:rpbookworm32 --platforms=@rules_bzlmodrio_toolchains//platforms/rpbookworm32
+build:rpbookworm32 --build_tag_filters=-no-rpbookworm32
+build:rpbookworm32 --platform_suffix=rpbookworm32
 
 # Alias toolchain names to what wpilibsuite uses for CI/Artifact naming
 build:athena --config=roborio
-build:linuxarm32 --config=raspibookworm32
+build:linuxarm32 --config=rpbookworm32
 build:linuxarm64 --config=bookworm64
 
 test --test_output=errors

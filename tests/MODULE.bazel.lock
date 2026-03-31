@@ -69,8 +69,8 @@
     "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_bazelrio/0.0.14/source.json": "7da669bc69d497942a9ac21b8f76c05f4a91b4212e3a697a1e27d9358576e995",
     "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_bzlmodrio_jdk/17.0.12-7.bcr1/MODULE.bazel": "2576b58a2b7393ac789a679ea56cb51c6100e8fb09a9b47ca99904ab7e254c06",
     "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_bzlmodrio_jdk/17.0.12-7.bcr1/source.json": "261c3de3cc7d8e1c9f56b6fce87e3e5c256a81e08750568829fce92b9ad690e9",
-    "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_bzlmodrio_toolchains/2025-1.bcr5/MODULE.bazel": "9bcb97d90efa95cf28b2bac35915deff1e8b0c783b1d41221dda44f204202ba6",
-    "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_bzlmodrio_toolchains/2025-1.bcr5/source.json": "8bdde517164b0eb8875e484c990aa1b3a4669b61d92f50641a3a75f31d2e52f9",
+    "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_bzlmodrio_toolchains/2025-1.bcr7/MODULE.bazel": "f7dfc784f9a1f6a54afab293494609ecb74afc185a33f6d7f89730029831f3c8",
+    "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_bzlmodrio_toolchains/2025-1.bcr7/source.json": "72e2f522417c36f3496bc69fe22ce39e9ab8bc96daa0e4a5cee2040458ec2d79",
     "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_bzlmodrio_toolchains/2025-1/MODULE.bazel": "81e540a541aac221fc84fc24124b8e5d07e2eff75942f44e67510c56794a5f22",
     "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_cc/0.0.1/MODULE.bazel": "cb2aa0747f84c6c3a78dad4e2049c154f08ab9d166b1273835a8174940365647",
     "https://raw.githubusercontent.com/pjreiniger/bazel-central-registry/bzlmodrio/modules/rules_cc/0.0.10/MODULE.bazel": "ec1705118f7eaedd6e118508d3d26deba2a4e76476ada7e0e3965211be012002",
@@ -649,18 +649,17 @@
         ]
       }
     },
-    "@@rules_bzlmodrio_toolchains+//:extensions.bzl%sh_configure": {
+    "@@rules_bzlmodrio_toolchains+//:extensions.bzl%cfg": {
       "general": {
-        "bzlTransitiveDigest": "znAfQPH+PP/xmq1YA1rIBbw/js8K6hK1jKsLaRzVh5A=",
-        "usagesDigest": "DpVwOZ7guqusd6ZSLMRh9paHq3E6XuqljYPqWnNguPg=",
+        "bzlTransitiveDigest": "DhgJ+yfXuTo6NfJqy0Yk6AMrlg1mqXZVqmE/ndVBgjE=",
+        "usagesDigest": "fTg/DVTl3lR9WpwKoW5X9ajczyRdoE6a1uf1p0SVExs=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
         "generatedRepoSpecs": {
-          "local_bookworm_32": {
+          "local_bookworm32": {
             "repoRuleId": "@@rules_bzlmodrio_toolchains+//toolchains:configure_cross_compiler.bzl%configure_cross_compiler",
             "attributes": {
-              "compiler": "bookworm-32",
               "bin_subfolder": "bookworm/bin",
               "bin_prefix": "armv7-bookworm-linux-gnueabihf-",
               "sysroot_subfolder": "bookworm/arm-linux-gnueabihf/sysroot",
@@ -668,13 +667,12 @@
               "target_cpu": "armv7",
               "target_system_name": "arm-linux-gnueabihf",
               "sysroot_include_folder": "arm-linux-gnueabihf",
-              "repo_shortname": "bookworm_32"
+              "repo_shortname": "bookworm32"
             }
           },
-          "local_bookworm_64": {
+          "local_bookworm64": {
             "repoRuleId": "@@rules_bzlmodrio_toolchains+//toolchains:configure_cross_compiler.bzl%configure_cross_compiler",
             "attributes": {
-              "compiler": "bookworm-64",
               "bin_subfolder": "bookworm/bin",
               "bin_prefix": "aarch64-bookworm-linux-gnu-",
               "sysroot_subfolder": "bookworm/aarch64-linux-gnu/sysroot",
@@ -682,41 +680,12 @@
               "target_cpu": "armv8a",
               "target_system_name": "aarch64-linux-gnu",
               "sysroot_include_folder": "aarch64-linux-gnu",
-              "repo_shortname": "bookworm_64"
+              "repo_shortname": "bookworm64"
             }
           },
-          "local_bullseye_32": {
+          "local_rp_bookworm32": {
             "repoRuleId": "@@rules_bzlmodrio_toolchains+//toolchains:configure_cross_compiler.bzl%configure_cross_compiler",
             "attributes": {
-              "compiler": "bullseye-32",
-              "bin_subfolder": "bullseye/bin",
-              "bin_prefix": "armv7-bullseye-linux-gnueabihf-",
-              "sysroot_subfolder": "bullseye/arm-linux-gnueabihf/sysroot",
-              "cxx_version": "10",
-              "target_cpu": "armv7",
-              "target_system_name": "arm-linux-gnueabihf",
-              "sysroot_include_folder": "arm-linux-gnueabihf",
-              "repo_shortname": "bullseye_32"
-            }
-          },
-          "local_bullseye_64": {
-            "repoRuleId": "@@rules_bzlmodrio_toolchains+//toolchains:configure_cross_compiler.bzl%configure_cross_compiler",
-            "attributes": {
-              "compiler": "bullseye-64",
-              "bin_subfolder": "bullseye/bin",
-              "bin_prefix": "aarch64-bullseye-linux-gnu-",
-              "sysroot_subfolder": "bullseye/aarch64-linux-gnu/sysroot",
-              "cxx_version": "10",
-              "target_cpu": "armv8a",
-              "target_system_name": "aarch64-linux-gnu",
-              "sysroot_include_folder": "aarch64-linux-gnu",
-              "repo_shortname": "bullseye_64"
-            }
-          },
-          "local_raspi_bookworm_32": {
-            "repoRuleId": "@@rules_bzlmodrio_toolchains+//toolchains:configure_cross_compiler.bzl%configure_cross_compiler",
-            "attributes": {
-              "compiler": "raspi-bookworm-32",
               "bin_subfolder": "raspi-bookworm/bin",
               "bin_prefix": "armv6-bookworm-linux-gnueabihf-",
               "sysroot_subfolder": "raspi-bookworm/arm-linux-gnueabihf/sysroot",
@@ -724,27 +693,12 @@
               "target_cpu": "armv7",
               "target_system_name": "arm-linux-gnueabihf",
               "sysroot_include_folder": "arm-linux-gnueabihf",
-              "repo_shortname": "raspi_bookworm_32"
-            }
-          },
-          "local_raspi_bullseye_32": {
-            "repoRuleId": "@@rules_bzlmodrio_toolchains+//toolchains:configure_cross_compiler.bzl%configure_cross_compiler",
-            "attributes": {
-              "compiler": "raspi-bullseye-32",
-              "bin_subfolder": "raspi-bullseye/bin",
-              "bin_prefix": "armv6-bullseye-linux-gnueabihf-",
-              "sysroot_subfolder": "raspi-bullseye/arm-linux-gnueabihf/sysroot",
-              "cxx_version": "10",
-              "target_cpu": "armv7",
-              "target_system_name": "arm-linux-gnueabihf",
-              "sysroot_include_folder": "arm-linux-gnueabihf",
-              "repo_shortname": "raspi_bullseye_32"
+              "repo_shortname": "rp_bookworm32"
             }
           },
           "local_roborio": {
             "repoRuleId": "@@rules_bzlmodrio_toolchains+//toolchains:configure_cross_compiler.bzl%configure_cross_compiler",
             "attributes": {
-              "compiler": "roborio",
               "bin_subfolder": "roborio-academic/bin",
               "bin_prefix": "arm-frc2025-linux-gnueabi-",
               "sysroot_subfolder": "roborio-academic/arm-nilrt-linux-gnueabi/sysroot",
@@ -758,7 +712,9 @@
           "local_systemcore": {
             "repoRuleId": "@@rules_bzlmodrio_toolchains+//toolchains:configure_cross_compiler.bzl%configure_cross_compiler",
             "attributes": {
-              "compiler": "systemcore",
+              "extra_defines": [
+                "-D__FRC_SYSTEMCORE__=1"
+              ],
               "bin_subfolder": "bookworm/bin",
               "bin_prefix": "aarch64-bookworm-linux-gnu-",
               "sysroot_subfolder": "bookworm/aarch64-linux-gnu/sysroot",
